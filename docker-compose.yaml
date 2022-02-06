@@ -1,23 +1,31 @@
 version: "2"
 services:
-    mysql:
-         image: mysql:latest
-         environment:
-                    - MYSQL_ROOT_PASSWORD=passwd
-                    - MYSQL_PASSWORD=passwd 
-                    - MYSQL_USER=ahmed
-                    - MYSQL_DATABASE=mysql
-        ports:
-           - 3306:3306
-    web:
-        image: ahmedibrahim9/java-maven-mysql:master-3b922c1
-        depends_on:
-            - mysql
-        ports:
-            - 8080:8080
-        environment:
-            - DATABASE_HOST=mysql
-            - DATABASE_USER=ahmed
-            - DATABASE_PASSWORD=passwd
-            - DATABASE_NAME=mysql
-            - DATABASE_PORT=3306
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    environment:
+    - MYSQL_ROOT_PASSWORD=passwd
+    - MYSQL_PASSWORD=passwd 
+    - MYSQL_USER=ahmed
+    - MYSQL_DATABASE=mysql
+    ports:
+    - 3306:3306
+    networks:
+      - net
+  java-app:
+    container_name: java-app
+    image: ahmedibrahim9/java-maven-mysql:master-3b922c1
+    depends_on:
+    - mysql
+    ports:
+    - 8080:8080
+    environment:
+    - DATABASE_HOST=mysql
+    - DATABASE_USER=ahmed
+    - DATABASE_PASSWORD=passwd
+    - DATABASE_NAME=mysql
+    - DATABASE_PORT=3306
+    networks:
+      - net
+networks:
+  net:
