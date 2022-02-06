@@ -26,5 +26,6 @@ jobs:
         with:
           registry: ahmedibrahim9/java-maven-mysql
           tags: latest
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
