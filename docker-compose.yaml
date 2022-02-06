@@ -10,7 +10,7 @@ services:
         ports:
            - 3306:3306
     web:
-        image: myimage
+        image: ahmedibrahim9/java-maven-mysql:master-3b922c1
         depends_on:
             - mysql
         ports:
