@@ -26,6 +26,5 @@ jobs:
         with:
           image: ahmedibrahim9/java-maven-mysql
           registry: docker.io
-          tag: v0.1
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
