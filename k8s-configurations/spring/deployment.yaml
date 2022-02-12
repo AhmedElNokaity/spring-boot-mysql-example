@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot
+  labels:
+    app: spring-boot
+spec:
+  selector:
+    matchLabels:
+      app: spring-boot
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-boot
+    spec:
+      containers:
+      - name: app
+        image: ahmedibrahim9/java-maven-mysql:master-3b922c1
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: JAVA_OPTS
+          value: -Xmx512m 
+        ports:
+        - containerPort: 8080
+          protocol: TCP

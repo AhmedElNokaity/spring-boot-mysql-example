@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-svc
+  labels:
+    app: mysql-svc
+spec:
+  type: ClusterIP
+  ports:
+    - name: app
+      port: 3306
+      targetPort: 3306
+      protocol: TCP
+  selector:
+    app: mysql

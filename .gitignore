@@ -1,4 +1,8 @@
 *.class
+terraform/.terraform/*
+terraform/*.tfstate
+terraform/*.tfstate.*
+
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
